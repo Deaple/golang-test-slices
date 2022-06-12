@@ -22,3 +22,16 @@ func SumAll(numbersToSum ...[]int) []int {
 	
 	return sums
 }
+
+//sum all numbers of a slice, except the head(first)
+//this way we get a sum of all other elements(tail)
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sums []int
+	for _,numbers := range numbersToSum{
+		//remove head by slicing from the second to the last element
+		tail := numbers[1:]
+		sums = append(sums,Sum(tail))
+
+	}
+	return sums
+}
